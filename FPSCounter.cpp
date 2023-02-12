@@ -2,7 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
-FPSCounter::FPSCounter() : AGameObject("FPSCounter")
+FPSCounter::FPSCounter() : AGameObject("FPS_COUNTER")
 {
 }
 
@@ -20,7 +20,7 @@ void FPSCounter::initialize()
 
 	this->stats_text = new sf::Text();
 	this->stats_text->setFont(*font);
-	this->stats_text->setPosition(Game::getInstance()->WINDOW_WIDTH - 150, Game::getInstance()->WINDOW_HEIGHT - 70);
+	this->stats_text->setPosition(Game::getInstance()->WINDOW_WIDTH - 150, Game::getInstance()->WINDOW_HEIGHT - 90);
 	this->stats_text->setOutlineColor(sf::Color(1.0f, 1.0f, 1.0f));
 	this->stats_text->setOutlineThickness(2.5f);
 	this->stats_text->setCharacterSize(35);

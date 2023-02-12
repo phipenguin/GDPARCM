@@ -1,10 +1,10 @@
 #include "TextureManager.h"
 #include "StringUtils.h"
+#include "StreamAssetLoader.h"
 #include <fstream>
 #include <iostream>
 #include <filesystem>
 #include <thread>
-//#include "IETThread.h"
 
 TextureManager* TextureManager::shared_instance = nullptr;
 
@@ -31,22 +31,32 @@ void TextureManager::loadFromAssetList()
 	}
 }
 
-void TextureManager::loadSingleStreamAsset(int index)
+void TextureManager::loadStreamingAssets()
+{
+	for ( auto& entry : std::filesystem::directory_iterator(STREAMING_PATH)) 
+	{
+		Thread::sleep(200);
+
+		String path = entry.path().generic_string();
+		std::vector<String> tokens = StringUtils::split(path, '/');
+		String asset_name = StringUtils::split(tokens[tokens.size() - 1], '.')[0];
+		this->instantiateAsTexture(path, asset_name, true);
+
+		std::cout << "[TextureManager] Loaded streaming texture: " << asset_name << std::endl;
+	}
+}
+
+void TextureManager::loadSingleStreamAsset(int index, IExecutionEvent* execution_event)
 {
 	int fileNum = 0;
 
 	for ( auto& entry : std::filesystem::directory_iterator(STREAMING_PATH)) {
 		if (index == fileNum)
 		{
-			//simulate loading of very large file
-			//<code here for thread sleeping. Fill this up only when instructor told so.>
+			String path = entry.path().generic_string();
+			StreamAssetLoader* asset_loader = new StreamAssetLoader(path, execution_event);
+			asset_loader->start();
 
-			this->instantiateAsTexture(entry.path().string(), entry.path().string(), true);
-
-			//<code here for loading asset>
-			//String assetName = "";
-
-			std::cout << "[TextureManager] Loaded streaming texture: " << entry.path().string() << std::endl;
 			break;
 		}
 

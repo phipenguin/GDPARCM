@@ -50,7 +50,7 @@ Game::Game() : main_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "GDPARCM"
 	TextureManager::getInstance()->loadFromAssetList();
 
     //initialize GOs/Textures/...
-	BGObject* bg_object = new BGObject("BGObject");
+	BGObject* bg_object = new BGObject("BG_OBJECT");
 	GameObjectManager::getInstance()->addObject(bg_object);
 
 	TextureDisplay* display = new TextureDisplay();

@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 #include <iostream>
 
-IconObject::IconObject(String name, int texture_index): AGameObject(name)
+IconObject::IconObject(String name, int texture_index) : AGameObject(name)
 {
 	this->texture_index = texture_index;
 }
