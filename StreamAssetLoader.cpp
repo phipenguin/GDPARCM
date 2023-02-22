@@ -12,15 +12,15 @@ StreamAssetLoader::StreamAssetLoader(String path, IExecutionEvent* execution_eve
 
 StreamAssetLoader::~StreamAssetLoader()
 {
-	std::cout << "Destroying stream asset loader" << std::endl;
+	//std::cout << "Destroying stream asset loader" << std::endl;
 }
 
-void StreamAssetLoader::run()
+void StreamAssetLoader::onStartTask()
 {
-	std::cout << "Running stream asset loader" << std::endl;
+	//std::cout << "Running stream asset loader" << std::endl;
 
 	//simulate loading of very large file
-	Thread::sleep(200);
+	Thread::sleep(1000);
 
 	std::vector<String> tokens = StringUtils::split(path, '/');
 	String asset_name = StringUtils::split(tokens[tokens.size() - 1], '.')[0];

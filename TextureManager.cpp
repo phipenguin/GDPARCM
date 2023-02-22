@@ -55,13 +55,12 @@ void TextureManager::loadSingleStreamAsset(int index, IExecutionEvent* execution
 		{
 			String path = entry.path().generic_string();
 			StreamAssetLoader* asset_loader = new StreamAssetLoader(path, execution_event);
-			asset_loader->start();
+			this->thread_pool->scheduleTask(asset_loader);
 
 			break;
 		}
 
 		fileNum++;
-		///std::cout << fileNum << std::endl;
 	}
 }
 
@@ -100,6 +99,8 @@ int TextureManager::getNumLoadedStreamTextures() const
 TextureManager::TextureManager()
 {
 	this->countStreamingAssets();
+	this->thread_pool = new ThreadPool("StreamAssetThreadPool", this->streaming_asset_count);
+	this->thread_pool->startScheduler();
 }
 
 void TextureManager::countStreamingAssets()

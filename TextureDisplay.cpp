@@ -21,15 +21,6 @@ void TextureDisplay::update(sf::Time delta_time)
 {
 	this->ticks += Game::getInstance()->TIME_PER_FRAME.asMilliseconds();
 
-	//if (this->ticks >= 200.0f) {
-	//	if (static_cast<int>(this->icon_list.size()) < TextureManager::getInstance()->streaming_asset_count)
-	//	{
-	//		TextureManager::getInstance()->loadSingleStreamAsset(static_cast<int>(this->icon_list.size()));
-	//		spawnObject();
-	//	}
-	//	this->ticks = 0.0f;
-	//}
-
 	if (this->streaming_type == StreamingType::BATCH_LOAD && !this->started_streaming && this->ticks > this->STREAMING_LOAD_DELAY)
 	{
 		this->started_streaming = true;

@@ -80,7 +80,6 @@ void Game::processEvents()
 			case sf::Event::Closed:
 				this->main_window.close();
 				break;
-
 		}
 	}
 }

@@ -1,8 +1,9 @@
 #pragma once
 #include "Thread.h"
+#include "IWorkerAction.h"
 
 class IExecutionEvent;
-class StreamAssetLoader : public Thread
+class StreamAssetLoader : public IWorkerAction
 {
 private:
 	typedef std::string String;
@@ -15,5 +16,5 @@ private:
 	String path;
 	IExecutionEvent* exec_event;
 
-	void run() override;
+	void onStartTask() override;
 };

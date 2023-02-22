@@ -1,5 +1,6 @@
 #pragma once
 #include "IExecutionEvent.h"
+#include "ThreadPool.h"
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
 
@@ -35,6 +36,8 @@ private:
 	TextureList stream_texture_list;
 
 	const std::string STREAMING_PATH = "Media/Streaming/";
+
+	ThreadPool* thread_pool;
 
 	void countStreamingAssets();
 	void instantiateAsTexture(String path, String asset_name, bool is_streaming);

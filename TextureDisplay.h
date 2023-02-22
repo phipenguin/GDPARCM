@@ -20,7 +20,7 @@ private:
 
 	IconList icon_list;
 
-	const float STREAMING_LOAD_DELAY = 300.0f;
+	const float STREAMING_LOAD_DELAY = 10.0f;
 	const StreamingType streaming_type = SINGLE_STREAM;
 	float ticks = 0.0f;
 	bool started_streaming = false;
