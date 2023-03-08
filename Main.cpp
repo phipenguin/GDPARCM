@@ -34,8 +34,8 @@ HittableList random_scene() {
     auto ground_material = make_shared<Lambertian>(color(0.5, 0.5, 0.5));
     world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, ground_material));
 
-    for (int a = -11; a < 11; a++) {
-        for (int b = -11; b < 11; b++) {
+    for (int a = -25; a < 25; a++) {
+        for (int b = -25; b < 25; b++) {
             auto choose_mat = random_double();
             point3 center(a + 0.9*random_double(), 0.2, b + 0.9*random_double());
 
@@ -71,6 +71,9 @@ HittableList random_scene() {
     auto material3 = make_shared<Metal>(color(0.7, 0.6, 0.5), 0.0);
     world.add(make_shared<Sphere>(point3(4, 1, 0), 1.0, material3));
 
+	auto material4 = make_shared<Lambertian>(color(0.8, 0.1, 0.1));
+    world.add(make_shared<Sphere>(point3(-8, 1, 0), 1.0, material4));
+
     return world;
 }
 
@@ -79,10 +82,11 @@ int main()
 
     // Image
 
-	const auto aspect_ratio = 3.0 / 2.0;
-    const int image_width = 1200;
+	//const auto aspect_ratio = 3.0 / 2.0;
+	const auto aspect_ratio = 1.0;
+    const int image_width = 512;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int samples_per_pixel = 500;
+    const int samples_per_pixel = 10;
     const int max_depth = 50;
 
     // World
