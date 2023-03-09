@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IETThread.cpp" />
     <ClCompile Include="Main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Apps\Github\GDPARCM\OPENCV\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="RaytraceThread.cpp" />
     <ClCompile Include="RTImage.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +31,10 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Hittable.h" />
     <ClInclude Include="HittableList.h" />
+    <ClInclude Include="IETThread.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="RaytraceThread.h" />
     <ClInclude Include="RTImage.h" />
     <ClInclude Include="RTWeekend.h" />
     <ClInclude Include="Sphere.h" />

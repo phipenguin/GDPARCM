@@ -21,6 +21,12 @@
     <ClCompile Include="RTImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IETThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RaytraceThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vec3.h">
@@ -51,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RTImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IETThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RaytraceThread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
