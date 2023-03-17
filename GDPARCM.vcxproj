@@ -143,6 +143,7 @@
     <ClCompile Include="IconObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PoolWorkerThread.cpp" />
+    <ClCompile Include="IETSemaphore.cpp" />
     <ClCompile Include="StreamAssetLoader.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TextureDisplay.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="IFinishedTask.h" />
     <ClInclude Include="IWorkerAction.h" />
     <ClInclude Include="PoolWorkerThread.h" />
+    <ClInclude Include="IETSemaphore.h" />
     <ClInclude Include="StreamAssetLoader.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TextureDisplay.h" />
