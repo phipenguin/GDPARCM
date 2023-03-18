@@ -15,6 +15,10 @@ void TextureDisplay::initialize()
 
 void TextureDisplay::processInput(sf::Event event)
 {
+	for (int i = 0; i < this->icon_list.size(); i++)
+	{
+		GameObjectManager::getInstance()->addObject(icon_list[i]);
+	}
 }
 
 void TextureDisplay::update(sf::Time delta_time)
@@ -37,6 +41,7 @@ void TextureDisplay::update(sf::Time delta_time)
 
 void TextureDisplay::onFinishedExecution()
 {
+	Game::getInstance()->num_of_thread_finished++;
 	this->spawnObject();
 }
 
@@ -48,7 +53,7 @@ void TextureDisplay::spawnObject()
 	this->icon_list.push_back(icon_object);
 
 	//set position
-	int IMG_WIDTH = 68; int IMG_HEIGHT = 68;
+	int IMG_WIDTH = 150; int IMG_HEIGHT = 900;
 	float x = this->column_grid * IMG_WIDTH;
 	float y = this->row_grid * IMG_HEIGHT;
 	icon_object->setPosition(x, y);
@@ -62,5 +67,5 @@ void TextureDisplay::spawnObject()
 		this->row_grid++;
 	}
 
-	GameObjectManager::getInstance()->addObject(icon_object);
+	//GameObjectManager::getInstance()->addObject(icon_object);
 }

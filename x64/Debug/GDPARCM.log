@@ -1,25 +1,11 @@
-﻿  BGObject.cpp
-D:\Apps\Github\GDPARCM\BGObject.cpp(26,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\BGObject.cpp(40,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.cpp
-D:\Apps\Github\GDPARCM\Game.cpp(107,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Game.cpp
+D:\Apps\Github\GDPARCM\Game.cpp(111,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  IconObject.cpp
-  P5IconObject.cpp
-D:\Apps\Github\GDPARCM\P5IconObject.cpp(23,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\P5IconObject.cpp(23,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\P5IconObject.cpp(37,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\P5IconObject.cpp(37,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  StreamAssetLoader.cpp
   TextureDisplay.cpp
-D:\Apps\Github\GDPARCM\TextureDisplay.cpp(52,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\TextureDisplay.cpp(53,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  TextureManager.cpp
-D:\Apps\Github\GDPARCM\TextureManager.cpp(82,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Apps\Github\GDPARCM\TextureManager.cpp(97,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  ThreadPool.cpp
+D:\Apps\Github\GDPARCM\TextureDisplay.cpp(57,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Apps\Github\GDPARCM\TextureDisplay.cpp(58,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Generating Code...
   GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe

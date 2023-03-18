@@ -14,6 +14,8 @@ public:
 	static const int WINDOW_WIDTH = 1920;
 	static const int WINDOW_HEIGHT = 1080;
 
+	int num_of_thread_finished = 1;
+
 private:
 	Game();
 	Game(Game const&) {};             // copy constructor is private
@@ -29,5 +31,5 @@ private:
 	void update(sf::Time elapsedTime);
 
 	sf::RectangleShape loading_bar;
-	int number_of_threads;
+	bool is_finished_loading_everything = false;
 };

@@ -20,7 +20,7 @@ void StreamAssetLoader::onStartTask()
 	//std::cout << "Running stream asset loader" << std::endl;
 
 	//simulate loading of very large file
-	Thread::sleep(1000);
+	Thread::sleep(5000);
 
 	std::vector<String> tokens = StringUtils::split(path, '/');
 	String asset_name = StringUtils::split(tokens[tokens.size() - 1], '.')[0];

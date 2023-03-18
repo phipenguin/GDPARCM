@@ -5,6 +5,7 @@
 #include "GameObjectManager.h"
 #include "TextureDisplay.h"
 #include "TextureManager.h"
+#include "ThreadPool.h"
 
 const sf::Time Game::TIME_PER_FRAME = sf::seconds(1.f / 60.f);
 
@@ -90,10 +91,14 @@ void Game::processEvents()
 				break;
 		}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		if (is_finished_loading_everything)
 		{
-			GameObjectManager::getInstance()->processInput(event, "BG_OBJECT");
-			GameObjectManager::getInstance()->processInput(event, "P5_ICON");
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+			{
+				GameObjectManager::getInstance()->processInput(event, "BG_OBJECT");
+				GameObjectManager::getInstance()->processInput(event, "P5_ICON");
+				GameObjectManager::getInstance()->processInput(event, "TEXTURE_DISPLAY");
+			}
 		}
 	}
 }
@@ -102,7 +107,11 @@ void Game::update(sf::Time elapsedTime)
 {
 	GameObjectManager::getInstance()->update(elapsedTime);
 
-	//this->number_of_threads = 
-	std::cout << "num of threads: " << number_of_threads << std::endl;
-	this->loading_bar.setSize(sf::Vector2f(this->number_of_threads, 20.0f));
+	if (this->num_of_thread_finished <= TextureManager::getInstance()->streaming_asset_count)
+		this->loading_bar.setSize(sf::Vector2f(this->WINDOW_WIDTH - (this->WINDOW_WIDTH / this->num_of_thread_finished), 20.0f));
+	else
+	{
+		this->is_finished_loading_everything = true;
+		this->loading_bar.setSize(sf::Vector2f(this->WINDOW_WIDTH, 20.0f));
+	}
 }
