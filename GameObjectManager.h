@@ -13,7 +13,7 @@ class GameObjectManager
 public:
 	static GameObjectManager* getInstance();
 
-	void processInput(sf::Event event);
+	void processInput(sf::Event event, std::string name);
 	void update(sf::Time delta_time);
 	void draw(sf::RenderWindow* window);
 

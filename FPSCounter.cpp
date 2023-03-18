@@ -20,7 +20,7 @@ void FPSCounter::initialize()
 
 	this->stats_text = new sf::Text();
 	this->stats_text->setFont(*font);
-	this->stats_text->setPosition(Game::getInstance()->WINDOW_WIDTH - 150, Game::getInstance()->WINDOW_HEIGHT - 90);
+	this->stats_text->setPosition(Game::getInstance()->WINDOW_WIDTH - 150, Game::getInstance()->WINDOW_HEIGHT - 1080);
 	this->stats_text->setOutlineColor(sf::Color(1.0f, 1.0f, 1.0f));
 	this->stats_text->setOutlineThickness(2.5f);
 	this->stats_text->setCharacterSize(35);
@@ -50,7 +50,7 @@ void FPSCounter::updateFPS(sf::Time elapsed_time)
 	int curr_fps;
 	this->update_time += elapsed_time;
 
-	if (this->update_time >= sf::seconds(0.25f)) {
+	if (this->update_time >= sf::seconds(0.5f)) {
 		curr_fps = floor(Game::getInstance()->getFPS());  // NOLINT(clang-diagnostic-float-conversion)
 		if (curr_fps > 60)
 		{

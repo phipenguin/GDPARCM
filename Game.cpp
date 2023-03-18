@@ -1,5 +1,6 @@
 ﻿#include "Game.h"
 #include "BGObject.h"
+#include "P5IconObject.h"
 #include "FPSCounter.h"
 #include "GameObjectManager.h"
 #include "TextureDisplay.h"
@@ -53,17 +54,24 @@ Game::Game() : main_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "GDPARCM"
 	BGObject* bg_object = new BGObject("BG_OBJECT");
 	GameObjectManager::getInstance()->addObject(bg_object);
 
+	P5IconObject* p5_icon_object = new P5IconObject("P5_ICON");
+	GameObjectManager::getInstance()->addObject(p5_icon_object);
+
 	TextureDisplay* display = new TextureDisplay();
 	GameObjectManager::getInstance()->addObject(display);
 
 	FPSCounter* fps_counter = new FPSCounter();
 	GameObjectManager::getInstance()->addObject(fps_counter);
+
+	this->loading_bar.setFillColor(sf::Color::Red);
+	this->loading_bar.setPosition(this->WINDOW_WIDTH - 1920, this->WINDOW_HEIGHT - 50);
 }
 
 void Game::render()
 {
 	this->main_window.clear();
 	GameObjectManager::getInstance()->draw(&this->main_window);
+	this->main_window.draw(loading_bar);
 	this->main_window.display();
 }
 
@@ -74,12 +82,18 @@ void Game::processEvents()
 	{
 		switch (event.type)
 		{
-			default: 
-				GameObjectManager::getInstance()->processInput(event);
-				break;
+			//default: 
+			//	GameObjectManager::getInstance()->processInput(event);
+			//	break;
 			case sf::Event::Closed:
 				this->main_window.close();
 				break;
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		{
+			GameObjectManager::getInstance()->processInput(event, "BG_OBJECT");
+			GameObjectManager::getInstance()->processInput(event, "P5_ICON");
 		}
 	}
 }
@@ -87,4 +101,8 @@ void Game::processEvents()
 void Game::update(sf::Time elapsedTime)
 {
 	GameObjectManager::getInstance()->update(elapsedTime);
+
+	//this->number_of_threads = 
+	std::cout << "num of threads: " << number_of_threads << std::endl;
+	this->loading_bar.setSize(sf::Vector2f(this->number_of_threads, 20.0f));
 }

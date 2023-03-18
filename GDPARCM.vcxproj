@@ -142,6 +142,7 @@
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="IconObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="P5IconObject.cpp" />
     <ClCompile Include="PoolWorkerThread.cpp" />
     <ClCompile Include="IETSemaphore.cpp" />
     <ClCompile Include="StreamAssetLoader.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="IExecutionEvent.h" />
     <ClInclude Include="IFinishedTask.h" />
     <ClInclude Include="IWorkerAction.h" />
+    <ClInclude Include="P5IconObject.h" />
     <ClInclude Include="PoolWorkerThread.h" />
     <ClInclude Include="IETSemaphore.h" />
     <ClInclude Include="StreamAssetLoader.h" />

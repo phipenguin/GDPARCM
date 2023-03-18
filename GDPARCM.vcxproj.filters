@@ -66,6 +66,9 @@
     <ClCompile Include="IETSemaphore.cpp">
       <Filter>Source Files\Threading</Filter>
     </ClCompile>
+    <ClCompile Include="P5IconObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -118,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="IETSemaphore.h">
       <Filter>Header Files\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="P5IconObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,11 +11,19 @@ GameObjectManager* GameObjectManager::getInstance()
 	return shared_instance;
 }
 
-void GameObjectManager::processInput(sf::Event event)
+void GameObjectManager::processInput(sf::Event event, std::string name)
 {
+	//for (int i = 0; i < this->game_object_list.size(); i++) {
+	//	if (this->game_object_list[i]!= nullptr)
+	//		this->game_object_list[i]->processInput(event);
+	//}
+
 	for (int i = 0; i < this->game_object_list.size(); i++) {
 		if (this->game_object_list[i]!= nullptr)
-			this->game_object_list[i]->processInput(event);
+		{
+			if (this->game_object_list[i]->getName() == name)
+				this->game_object_list[i]->processInput(event);
+		}
 	}
 }
 

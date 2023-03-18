@@ -27,4 +27,7 @@ private:
 	void render();
 	void processEvents();
 	void update(sf::Time elapsedTime);
+
+	sf::RectangleShape loading_bar;
+	int number_of_threads;
 };
