@@ -1,11 +1,2 @@
-﻿  Game.cpp
-D:\Apps\Github\GDPARCM\Game.cpp(111,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  TextureDisplay.cpp
-D:\Apps\Github\GDPARCM\TextureDisplay.cpp(57,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Apps\Github\GDPARCM\TextureDisplay.cpp(58,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+﻿  AudioManager.cpp
   GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe

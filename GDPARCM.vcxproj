@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AGameObject.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BGObject.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="PoolWorkerThread.cpp" />
     <ClCompile Include="IETSemaphore.cpp" />
     <ClCompile Include="StreamAssetLoader.cpp" />
+    <ClCompile Include="StreamSoundLoader.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TextureDisplay.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -154,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AGameObject.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BGObject.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="Game.h" />
@@ -166,6 +169,7 @@
     <ClInclude Include="PoolWorkerThread.h" />
     <ClInclude Include="IETSemaphore.h" />
     <ClInclude Include="StreamAssetLoader.h" />
+    <ClInclude Include="StreamSoundLoader.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TextureDisplay.h" />
     <ClInclude Include="TextureManager.h" />
