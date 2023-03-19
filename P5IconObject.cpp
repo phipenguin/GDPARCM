@@ -27,17 +27,51 @@ void P5IconObject::initialize()
 void P5IconObject::processInput(sf::Event event)
 {
 	AGameObject::processInput(event);
-	this->texture = TextureManager::getInstance()->getFromTextureMap("TakeYourHeart", 0);
-
-	this->texture->setRepeated(false);
-	this->sprite->setTexture(*texture);
-	sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
-
-	this->sprite->setTextureRect(sf::IntRect(0, 0, 499, 538));
-	this->setPosition(Game::getInstance()->WINDOW_WIDTH - 280, Game::getInstance()->WINDOW_HEIGHT - 330);
 }
 
 void P5IconObject::update(sf::Time delta_time)
 {
 	AGameObject::update(delta_time);
+
+	this->ticks += delta_time.asSeconds();
+
+	if (this->ticks > 5.0f)
+	{
+		if (index == 0)
+		{
+			index = 1;
+			this->ticks = 0.0f;
+			can_change_icon = true;
+		}
+		else
+		{
+			index = 0;
+			this->ticks = 0.0f;
+			can_change_icon = true;
+		}
+	}
+
+	if (index == 0 && can_change_icon)
+	{
+		this->sprite = new sf::Sprite();
+		this->texture = TextureManager::getInstance()->getFromTextureMap("TakeYourTime", 0);
+
+		this->texture->setRepeated(false);
+		this->sprite->setTexture(*texture);
+		sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
+
+		this->setPosition(Game::getInstance()->WINDOW_WIDTH - 210, Game::getInstance()->WINDOW_HEIGHT - 325);
+		this->setScale(0.5f, 0.5f);
+	}
+	else if (index == 1 && can_change_icon)
+	{
+		this->texture = TextureManager::getInstance()->getFromTextureMap("TakeYourHeart", 0);
+
+		this->texture->setRepeated(false);
+		this->sprite->setTexture(*texture);
+		sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
+
+		this->sprite->setTextureRect(sf::IntRect(0, 0, 499, 538));
+		this->setPosition(Game::getInstance()->WINDOW_WIDTH - 280, Game::getInstance()->WINDOW_HEIGHT - 330);
+	}
 }

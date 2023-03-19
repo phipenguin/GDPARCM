@@ -15,10 +15,7 @@ void TextureDisplay::initialize()
 
 void TextureDisplay::processInput(sf::Event event)
 {
-	for (int i = 0; i < this->icon_list.size(); i++)
-	{
-		GameObjectManager::getInstance()->addObject(icon_list[i]);
-	}
+	start_playing = true;
 }
 
 void TextureDisplay::update(sf::Time delta_time)
@@ -37,12 +34,33 @@ void TextureDisplay::update(sf::Time delta_time)
 		TextureManager::getInstance()->loadSingleStreamAsset(this->num_displayed, this);
 		this->num_displayed++;
 	}
+
+	if (start_playing)
+	{
+		this->play_ticks += delta_time.asSeconds();
+
+		if (frame_index >= icon_list.size())
+		{
+			start_playing = false;
+		}
+		else
+		{
+			if (this->play_ticks > 0.065f)
+			{
+				GameObjectManager::getInstance()->addObject(icon_list[frame_index]);
+				this->play_ticks = 0;
+				frame_index++;
+			}
+		}
+	}
 }
 
 void TextureDisplay::onFinishedExecution()
 {
+	guard.lock();
 	Game::getInstance()->num_of_thread_finished++;
 	this->spawnObject();
+	guard.unlock();
 }
 
 void TextureDisplay::spawnObject()
@@ -53,19 +71,19 @@ void TextureDisplay::spawnObject()
 	this->icon_list.push_back(icon_object);
 
 	//set position
-	int IMG_WIDTH = 150; int IMG_HEIGHT = 900;
-	float x = this->column_grid * IMG_WIDTH;
-	float y = this->row_grid * IMG_HEIGHT;
-	icon_object->setPosition(x, y);
+	//int IMG_WIDTH = 68; int IMG_HEIGHT = 68;
+	//float x = this->column_grid * IMG_WIDTH;
+	//float y = this->row_grid * IMG_HEIGHT;
+	icon_object->setPosition(0, 0);
 
-	std::cout << "Set position: " << x << " " << y << std::endl;
+	//std::cout << "Set position: " << x << " " << y << std::endl;
 
-	this->column_grid++;
-	if (this->column_grid == this->MAX_COLUMN)
-	{
-		this->column_grid = 0;
-		this->row_grid++;
-	}
+	//this->column_grid++;
+	//if (this->column_grid == this->MAX_COLUMN)
+	//{
+	//	this->column_grid = 0;
+	//	this->row_grid++;
+	//}
 
 	//GameObjectManager::getInstance()->addObject(icon_object);
 }

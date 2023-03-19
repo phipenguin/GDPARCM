@@ -3,6 +3,7 @@
 #include "ThreadPool.h"
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
+#include <mutex>
 
 class TextureManager
 {
@@ -36,12 +37,14 @@ private:
 	TextureList stream_texture_list;
 
 	//const std::string STREAMING_PATH = "Media/Streaming/";
-	const std::string STREAMING_PATH = "Assets/Images/Characters/";
+	const std::string STREAMING_PATH = "Assets/Images/Video/";
 
 	ThreadPool* thread_pool;
 
 	void countStreamingAssets();
 	void instantiateAsTexture(String path, String asset_name, bool is_streaming);
+
+	std::mutex guard;
 
 	friend class StreamAssetLoader;
 };

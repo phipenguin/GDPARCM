@@ -32,4 +32,5 @@ private:
 
 	sf::RectangleShape loading_bar;
 	bool is_finished_loading_everything = false;
+	bool is_enter_pressed = false;
 };

@@ -12,4 +12,7 @@ public:
 
 private:
 	const float SPEED_MULTIPLIER = 3000.0f;
+	float ticks = 0.0f;
+	int index = 0;
+	bool can_change_bg = false;
 };

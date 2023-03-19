@@ -34,4 +34,5 @@ private:
 
 	GameObjectTable game_object_table;
 	GameObjectList game_object_list;
+
 };

@@ -30,14 +30,6 @@ void BGObject::initialize()
 void BGObject::processInput(sf::Event event)
 {
 	AGameObject::processInput(event);
-	this->texture = TextureManager::getInstance()->getFromTextureMap("Nighttime", 0);
-
-	this->texture->setRepeated(true);
-	this->sprite->setTexture(*texture);
-	sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
-
-	this->sprite->setTextureRect(sf::IntRect(0, 0, Game::getInstance()->WINDOW_WIDTH, Game::getInstance()->WINDOW_HEIGHT * 8));
-	this->setPosition(0, -Game::getInstance()->WINDOW_HEIGHT * 7);
 }
 
 void BGObject::update(sf::Time delta_time)
@@ -53,4 +45,44 @@ void BGObject::update(sf::Time delta_time)
 	//	//reset position
 	//	this->setPosition(0, -Game::WINDOW_HEIGHT * 7);
 	//}
+	this->ticks += delta_time.asSeconds();
+
+	if (this->ticks > 5.0f)
+	{
+		if (index == 0)
+		{
+			index = 1;
+			this->ticks = 0.0f;
+			can_change_bg = true;
+		}
+		else
+		{
+			index = 0;
+			this->ticks = 0.0f;
+			can_change_bg = true;
+		}
+	}
+
+	if (index == 0 && can_change_bg)
+	{
+		this->texture = TextureManager::getInstance()->getFromTextureMap("Daytime", 0);
+
+		this->texture->setRepeated(true);
+		this->sprite->setTexture(*texture);
+		sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
+
+		this->sprite->setTextureRect(sf::IntRect(0, 0, Game::getInstance()->WINDOW_WIDTH, Game::getInstance()->WINDOW_HEIGHT * 8));
+		this->setPosition(0, -Game::getInstance()->WINDOW_HEIGHT * 7);
+	}
+	else if (index == 1 && can_change_bg)
+	{
+		this->texture = TextureManager::getInstance()->getFromTextureMap("Nighttime", 0);
+
+		this->texture->setRepeated(true);
+		this->sprite->setTexture(*texture);
+		sf::Vector2u textureSize = this->sprite->getTexture()->getSize();
+
+		this->sprite->setTextureRect(sf::IntRect(0, 0, Game::getInstance()->WINDOW_WIDTH, Game::getInstance()->WINDOW_HEIGHT * 8));
+		this->setPosition(0, -Game::getInstance()->WINDOW_HEIGHT * 7);
+	}
 }
