@@ -1,2 +1,10 @@
-﻿  TextureDisplay.cpp
+﻿  Game.cpp
+D:\Apps\Github\GDPARCM\Game.cpp(115,71): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  StreamAssetLoader.cpp
+  TextureDisplay.cpp
+  Generating Code...
   GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe
