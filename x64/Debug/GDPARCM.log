@@ -1,3 +1,9 @@
-﻿  Main.cpp
-  LINK : D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe not found or not built by the last incremental link; performing full link
-  GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe
+﻿  ConsoleSynchronizer.cpp
+D:\Apps\Github\GDPARCM\ConsoleSynchronizer.cpp(5,1): error C2512: 'std::counting_semaphore<1>': no appropriate default constructor available
+C:\Miscellaneous\Visual Studio 2022\VC\Tools\MSVC\14.33.31629\include\semaphore(208,1): message : see declaration of 'std::counting_semaphore<1>'
+  ConsumerThread.cpp
+  DataBuffer.cpp
+  IETThread.cpp
+  Main.cpp
+  ProducerThread.cpp
+  Generating Code...
