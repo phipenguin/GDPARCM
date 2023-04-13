@@ -1,2 +1,8 @@
 ﻿  ConsoleSynchronizer.cpp
+  ConsumerThread.cpp
+  DataBuffer.cpp
+  IETThread.cpp
+  Main.cpp
+  ProducerThread.cpp
+  Generating Code...
   GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe
