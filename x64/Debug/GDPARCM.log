@@ -1,8 +1,3 @@
-﻿  ConsoleSynchronizer.cpp
-  ConsumerThread.cpp
-  DataBuffer.cpp
-  IETThread.cpp
-  Main.cpp
-  ProducerThread.cpp
-  Generating Code...
+﻿  ProducerThread.cpp
+D:\Apps\Github\GDPARCM\ProducerThread.cpp(34,18): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   GDPARCM.vcxproj -> D:\Apps\Github\GDPARCM\x64\Debug\GDPARCM.exe

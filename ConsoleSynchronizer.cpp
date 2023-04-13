@@ -1,12 +1,15 @@
 ﻿#include "ConsoleSynchronizer.h"
 #include <iostream>
 
-ConsoleSynchronizer::ConsoleSynchronizer()
-{
-}
+ConsoleSynchronizer* ConsoleSynchronizer::shared_instance = nullptr;
 
-ConsoleSynchronizer::~ConsoleSynchronizer()
+ConsoleSynchronizer* ConsoleSynchronizer::getInstance()
 {
+	if (shared_instance == nullptr) {
+		shared_instance = new ConsoleSynchronizer();
+	}
+
+	return shared_instance;
 }
 
 void ConsoleSynchronizer::update()
@@ -17,6 +20,7 @@ void ConsoleSynchronizer::update()
 void ConsoleSynchronizer::updateMessage(std::string message)
 {
 	this->guard.acquire();
+	this->console_message.clear();
 	this->console_message += message + "\n";
 	this->guard.release();
 }
