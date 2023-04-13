@@ -17,7 +17,21 @@ int main()
 	std::cout << "Enter the number of consumers: ";
 	std::cin >> num_of_consumer;
 
+	for (int p = 0; p < num_of_producer; p++)
+	{
+		ProducerThread* producer_thread = new ProducerThread();
+		producer_thread->start();
 
+		producer_threads.push_back(producer_thread);
+	}
+
+	for (int c = 0; c < num_of_consumer; c++)
+	{
+		ConsumerThread* consumer_thread = new ConsumerThread();
+		consumer_thread->start();
+
+		consumer_threads.push_back(consumer_thread);
+	}
 
 	bool standby = true;
 

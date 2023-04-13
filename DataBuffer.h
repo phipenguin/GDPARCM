@@ -4,12 +4,13 @@
 class DataBuffer
 {
 public:
-	DataBuffer();
-	~DataBuffer();
+	static DataBuffer* getInstance();
 
 	void addItem();
 	void consumerItem();
 
 private:
+	DataBuffer(){};
+
 	std::vector<int> buffer;
 };
