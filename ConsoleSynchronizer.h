@@ -12,6 +12,6 @@ public:
 	void updateMessage(std::string message);
 
 private:
-	std::binary_semaphore guard;
+	std::binary_semaphore guard{1};
 	std::string console_message;
 };
