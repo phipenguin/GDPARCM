@@ -17,6 +17,8 @@ int main()
 	std::cout << "Enter the number of consumers: ";
 	std::cin >> num_of_consumer;
 
+
+
 	bool standby = true;
 
 	while(standby)
